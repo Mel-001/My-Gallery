@@ -53,4 +53,20 @@ class Image(models.Model):
     @classmethod
     def view_pictures_by_category(cls,category):
         category = cls.objects.filter(category = category)
-        return category    
+        return category  
+      
+class Category(models.Model):
+    category_name = models.CharField(max_length=80)
+
+
+    def save_category(self):
+        self.save()
+        
+    @classmethod
+    def get_categories(cls):
+        categories = cls.objects.all()
+
+        return categories
+
+    def __str__(self):
+        return self.category_name
