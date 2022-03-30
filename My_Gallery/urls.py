@@ -10,7 +10,11 @@ urlpatterns=[
     # url(r'^search/',views.search_results),
     # url(r'^location/(\d+)',views.viewPics_by_location),
     # url(r'^category/(\d+)',views.viewPics_by_category),
-    path('pics/', views.pics, name='pics'),
+    path('', views.pics, name='pics'),
+    path('single_pic/', views.single_pic),
+    path('search/', views.search_results),
+    path('location/', views.viewPics_by_location),
+    path('category/', views.viewsPics_by_category)
     ]
 
 
