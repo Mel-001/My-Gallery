@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 class User(models.Model):
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length=50)
@@ -11,7 +10,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.first_name
-    
+
 class Image(models.Model):
     image = models.ImageField(upload_to= 'pictures/')
     name = models.CharField(max_length=50)
@@ -53,8 +52,9 @@ class Image(models.Model):
     @classmethod
     def view_pictures_by_category(cls,category):
         category = cls.objects.filter(category = category)
-        return category  
-      
+        return category 
+
+
 class Category(models.Model):
     category_name = models.CharField(max_length=80)
 
@@ -69,7 +69,8 @@ class Category(models.Model):
         return categories
 
     def __str__(self):
-        return self.category_name
+        return self.category_name 
+    
 class Location(models.Model):
     location_name = models.CharField(max_length=80)
     def save_location(self):
@@ -82,4 +83,5 @@ class Location(models.Model):
     def get_location(cls):
         locations = cls.objects.all()
         return locations
-    
+
+
