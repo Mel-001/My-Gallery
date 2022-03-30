@@ -32,7 +32,7 @@ def pics(request):
         message = "field cannot be empty"
         return render(request,'search.html',{"message":message})
 
-        def viewPics_by_location(request,location):
+    def viewPics_by_location(request,location):
     locationimages = Image.view_pictures_by_location(location)
     return render(request,"location_images.html",{"locationimages":locationimages})
 
