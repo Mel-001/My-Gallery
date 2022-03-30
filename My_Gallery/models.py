@@ -11,3 +11,46 @@ class User(models.Model):
 
     def __str__(self):
         return self.first_name
+    
+class Image(models.Model):
+    image = models.ImageField(upload_to= 'pictures/')
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    location = models.ForeignKey('Location',on_delete = models.CASCADE,default=None)
+    category = models.ForeignKey('Category', on_delete = models.CASCADE,default=None)
+    author = models.ForeignKey(User,on_delete = models.CASCADE)
+
+
+    def save_image(self):
+        self.save()
+        
+    def delete_image(self):
+        self.delete()
+
+    
+    @classmethod
+    def all_images(cls):
+        pics = cls.objects.all()
+        return pics
+
+    @classmethod
+    def get_one_image(cls,id):
+        pictures = cls.objects.filter(id = id)
+        return pictures
+
+    @classmethod
+    def search_by_name(cls,search_term):
+        image = cls.objects.filter(name__icontains=search_term)
+        return image
+
+    
+    @classmethod
+    def view_pictures_by_location(cls,location):
+        location_pics = cls.objects.filter(location= location)
+
+        return location_pics
+
+    @classmethod
+    def view_pictures_by_category(cls,category):
+        category = cls.objects.filter(category = category)
+        return category    
