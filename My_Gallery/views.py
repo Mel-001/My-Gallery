@@ -12,3 +12,10 @@ def pics(request):
     location_pics = Location.get_location()
 
     return render(request,'pictures.html',{'pictures': pictures, 'category': category, 'location_pics':location_pics })
+
+    def single_pic(request,id):
+    try:
+        image = Image.objects.get(id = id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"single_image.html", {"image":image})
