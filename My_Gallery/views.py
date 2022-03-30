@@ -36,4 +36,8 @@ def pics(request):
     locationimages = Image.view_pictures_by_location(location)
     return render(request,"location_images.html",{"locationimages":locationimages})
 
+    def viewPics_by_category(request,category):
+    photos =Image.view_pictures_by_category(category)
+    return render (request,'categories.html',{"photos":photos})
+
      
