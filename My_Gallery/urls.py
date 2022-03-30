@@ -10,3 +10,7 @@ urlpatterns=[
     url(r'^location/(\d+)',views.viewPics_by_location),
     url(r'^category/(\d+)',views.viewPics_by_category),
     ]
+
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT
