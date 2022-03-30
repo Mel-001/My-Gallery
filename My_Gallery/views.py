@@ -6,3 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
+def pics(request):
+    category = Category.get_categories()
+    pictures = Image.all_images ()
+    location_pics = Location.get_location()
+
+    return render(request,'pictures.html',{'pictures': pictures, 'category': category, 'location_pics':location_pics })
