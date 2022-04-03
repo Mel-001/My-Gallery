@@ -18,7 +18,7 @@ def single_pic(request,id):
         image = Image.objects.get(id = id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request,"single_image.html", {"image":image})
+    return render(request,"single_pic.html", {"image":image})
 
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:

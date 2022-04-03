@@ -13,7 +13,7 @@ urlpatterns=[
     # url(r'^category/(\d+)',views.viewPics_by_category),
     path('admin/', admin.site.urls),
     path('', views.pics, name='pics'),
-    path('single_pic/', views.single_pic),
+    path('single_pic/<int:id>/', views.single_pic),
     path('search/', views.search_results),
     path('location/', views.viewPics_by_location),
     path('category/', views.viewPics_by_category),
